@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Productivity Blocker",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+    "declarative_net_request" : {
+    "rule_resources" : [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "rules_1.json"
+    }]
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+    "host_permissions": [
+    "<all_urls>"
+  ],
+    "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "hello.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
