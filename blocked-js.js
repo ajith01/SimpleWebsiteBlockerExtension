@@ -1,3 +1,5 @@
+import {addDynamicBlockRules, removeDynamicBlockRule} from './DynamicRuleUtils.js'
+
 document.addEventListener('DOMContentLoaded', function() {
     var unblockButton = document.getElementById('unblock-btn');
     unblockButton.addEventListener('click', function() {
@@ -10,6 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     submitUnblockButton.addEventListener('click', function() {
+        const timeRequestedTextBox = document.getElementById('time_requested');
+        const reasonTextBox = document.getElementById('reason');
+        
+        var time_requested_val = timeRequestedTextBox.value;
+
+        chrome.runtime.sendMessage({command: "StartTimerToAddMessager", delayValue: time_requested_val}, function(response) {
+            console.log(response.status);
+          });
+        
+
+        console.log("this block  ran ------ 4")
         
     })
 });

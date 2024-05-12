@@ -7,24 +7,40 @@
     "default_popup": "hello.html",
     "default_icon": "hello_extensions.png"
   },
-    "declarative_net_request" : {
-    "rule_resources" : [{
-      "id": "ruleset_1",
-      "enabled": true,
-      "path": "rules_1.json"
-    }]
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules_1.json"
+      }
+    ]
   },
   "permissions": [
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequestFeedback",
+    "nativeMessaging",
+    "tabs"
   ],
-    "host_permissions": [
+  "host_permissions": [
     "<all_urls>"
   ],
-    "web_accessible_resources": [
+  "web_accessible_resources": [
     {
-      "resources": ["blocked.html", "hello.html"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "blocked.html",
+        "hello.html",
+        "DynamicRuleUtils.js",
+        "popups.js",
+        "blocked-js.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "DynamicRuleUtils.js",
+    "type": "module"
+  }
 }

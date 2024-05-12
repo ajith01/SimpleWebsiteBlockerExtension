@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,12 +16,16 @@
             align-items: center;
             justify-content: center;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: black;
         }
+
         p {
             color: black;
         }
+
         .container {
             text-align: center;
             width: 100%;
@@ -29,23 +34,27 @@
             padding: 20px;
             border-radius: 10px;
         }
+
         #unblock-section {
             display: none;
         }
     </style>
-    <script src="./blocked-js.js"></script>
+    <script type="module" src="./DynamicRuleUtils.js"></script>
+    <script type="module" src="./blocked-js.js"></script>
+
 </head>
+
 <body>
     <div class="container">
         <h2>Website Blocked</h2>
-        <p>This website is currently restricted. To request access, click the unblock button and provide the necessary details.</p>
-        <button id="unblock-btn" >Unblock</button>
+        <p>This website is currently restricted. To request access, click the unblock button and provide the necessary
+            details.</p>
+        <button id="unblock-btn">Unblock</button>
         <div class="unblock-section" id="unblock-section">
-            <form action="#" method="post" onsubmit="event.preventDefault();">
-                <input type="text" id="time_requested" name="time_requested" placeholder="Time requested (e.g., 2 hours)" required>
+                <input type="text" id="time_requested" name="time_requested"
+                    placeholder="Time requested (e.g., 2 hours)" required>
                 <input type="text" id="reason" name="reason" placeholder="Your reason for unblocking..." required>
                 <button id="submit-unblock" type="submit">Submit Request</button>
-            </form>
         </div>
     </div>
 </body>
